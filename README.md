@@ -6,7 +6,9 @@ This project visualizes the popularity of various programming languages over tim
 
 The project reads data from a CSV file containing monthly popularity stats for each programming language, combines the year and month columns to create a time index, and then generates a bar chart race animation.
 
-![Sample Animation](video.mp4)
+
+![Sample Animation](linevideo.gif)
+![Sample Animation](linevideo.gif)
 
 ## Features
 
