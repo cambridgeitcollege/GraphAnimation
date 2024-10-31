@@ -1,0 +1,29 @@
+import pandas as pd
+import bar_chart_race as bcr
+
+# Load the data
+df = pd.read_csv('data.csv')
+
+# Combine 'Year' and 'Months' to create a time index
+df['Time'] = df['Year'].astype(str) + ' ' + df['Months'].astype(str)
+df.set_index('Time', inplace=True)
+
+# Drop the 'Year' and 'Months' columns as we now have a combined time index
+df.drop(['Year', 'Months'], axis=1, inplace=True)
+
+# Create the bar chart race animation
+bcr.bar_chart_race(
+    df=df,
+    filename='programming_languages_race.mp4',  # Output video file
+    orientation='h',  # Horizontal bars
+    sort='desc',  # Sort bars descending by value
+    n_bars=10,  # Number of bars to display
+    steps_per_period=20,  # Smoother animation
+    period_length=1000,  # Speed of the animation
+    title='Top Programming Languages Over Time',
+    bar_size=.95,  # Adjust bar size
+    cmap='dark12',  # Color scheme
+    fixed_max=True,  # Fix the maximum value on the axis
+)
+
+print("Animation saved as 'programming_languages_race.mp4'")
